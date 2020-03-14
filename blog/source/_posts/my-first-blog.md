@@ -1,0 +1,41 @@
+如何利用github+hexo创建自己的blog
+# 本地环境准备 安装node git git帐号,hexo,vscode
+## 1.网上下载mac版本的node包一键安装(或百度如何用brew安装)，网上下载vscode包一键安装
+## 2.在github上注册一个自己的帐号
+## 3.安装git 
+### 1）首先查看电脑是否安装Git，终端输入 git 如没有安装命令行输入 brew install git（如没有brew，百度如何安装  
+### 2）查看是否设置过username和 email 
+   git config user.name 
+   git config user.email
+   如没有设置进行设置
+   git config --global user.name "username"
+   git config --global user.email "email"
+### 3)生成ssk
+   i）ssh-keygen -t rsa -C "1050794513@qq.com"回车根据提示操作
+   ii）进入目录 cat .ssh/id_rsa.pub复制生成的ssk,登录GitHub（默认你已经注册了GitHub账号），添加ssh key，点击Settings->SSH and GPG keys ->New SSH keytitle随便输入，在key中贴如你的ssh key 
+   iii)连接验证 ssh -T git@github.com 
+## 4.在github上新建一个自己的仓库，仓库的名字命名为（username.github.io）username为github的用户名
+   常见问题：github的用户名注意大小写，不然https://username.github.io会把username作为域名转成小写，用户名和https://username.github.io的username不一致，上述网址打开就不是默认的主页
+## 5.安装hexo
+  1)把npm源切到淘宝 npm config set registry https://registry.npm.taobao.org
+  2）安装hexo  npm install -g hexo-cli
+  3)进入一个本地目录 命令行输入 hexo init blog创建
+  4)进入blogname  命令行输入 hexo s 本地启动成功用http://localhost:4000/打开查看
+## 6.github上部署
+  1）在blog的根目录下的_config.yml文件中可以修改theme: landscape（主题已经放置在themes目录下）
+  2）在命令行中输入 npm install -g hexo-deployer-git --save
+  3)在blog的根目录下的_config.yml文件中配置 deploy
+   deploy:
+  type: git
+  repo: git工程地址（ttps://github.com/username/username.github.io.git）
+  branch: master
+  4) 命令行输入 hexo clean把打包文件夹清空
+  5）命令行输入 hexo  deploy 部署到git远程
+  6）https://username.github.io就可以查看了
+
+  备注： [hexo官方文档](https://hexo.io/zh-cn/docs/commands)
+        [Markdown菜鸟教程](https://www.runoob.com/markdown/md-link.html)
+
+
+
+
