@@ -36,7 +36,11 @@ tags:
   4) 命令行输入 hexo clean把打包文件夹清空
   5）命令行输入 hexo  deploy 部署到git远程
   6）https://username.github.io就可以查看了
-
+## 7.引用图片
+npm install hexo-asset-image --save
+_config.yml配置文件中，修改为 post_asset_folder: true， 然后新建一篇文章
+hexo new post first
+这个时候会出现一个first.md 和 first的文件夹 图片放在first文件夹下，这样就可以引用了
   备注： [hexo官方文档](https://hexo.io/zh-cn/docs/commands)
         [Markdown菜鸟教程](https://www.runoob.com/markdown/md-link.html)
 
